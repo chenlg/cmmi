@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.cmmi</groupId>
+		<artifactId>cmmi-common</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	
+	<groupId>com.cmmi</groupId>
+	<artifactId>cmmi-common-shared</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+	
+	<name>cmmi-common-shared</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+
+		<!-- AOP begin -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+		</dependency>
+		<!-- AOP end -->
+	</dependencies>
+</project>
