@@ -22,7 +22,6 @@
 			<groupId>com.cmmi</groupId>
 			<artifactId>cmmi-biz-service-escape</artifactId>
 		</dependency>
-		
 		<dependency>
 			<groupId>com.cmmi</groupId>
 			<artifactId>cmmi-core-domain</artifactId>

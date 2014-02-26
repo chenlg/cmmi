@@ -524,7 +524,7 @@
 	  </dependency>
 	  <dependency>
 		<groupId>com.cmmi</groupId>
-		<artifactId>cmmi-biz-service-bo</artifactId>
+		<artifactId>cmmi-biz-service-escape</artifactId>
 		<version>1.0.0</version>
 	  </dependency>
 	  <dependency>
@@ -763,6 +763,30 @@
   
   <profiles>
 
+	<!-- 执行functional test 
+	<profile>
+		<id>functional-test</id>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<configuration>
+						<argLine>-Xmx256M -XX:MaxPermSize=128m</argLine>
+						<includes>
+							<include>**/*FT.java</include>
+						</includes>-->
+						<!-- 支持taglib tld文件查找的必要设置
+						<useSystemClassLoader>false</useSystemClassLoader> -->
+						<!-- 将mvn命令行传入的selenium driver参数传入surefire的JVM 
+						<systemPropertyVariables>
+							<selenium.driver>${selenium.driver}</selenium.driver>
+						</systemPropertyVariables>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>-->
 	
 	<!-- 执行@Category(Smoke.class)的TestCase 
 	<profile>

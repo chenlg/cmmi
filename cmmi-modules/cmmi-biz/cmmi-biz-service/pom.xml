@@ -16,7 +16,7 @@
   <url>http://maven.apache.org</url>
   
   <modules>
-    <module>cmmi-biz-service-bo</module>
+    <module>cmmi-biz-service-escape</module>
     <module>cmmi-biz-service-logic</module>
   </modules>
 </project>
