@@ -3,11 +3,12 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 TODO ADD REASON. 
+ * Reason:   系统安全认证区.
  * 
- * @author chenlg
- * @version $Id: package-info.java, v 0.1 2014年2月25日 下午4:21:35 chenlg Exp $
- * @since    JDK 1.7
- * @see
+ *      <p>功能描述:</p>
+ *      <ul>
+ *          <li>1.系统接口服务安全认证</li>
+ *          <li>2.认证缓存策略</li>
+ *       </ul>
  */
 package com.cmmi.biz.process.sercurity;

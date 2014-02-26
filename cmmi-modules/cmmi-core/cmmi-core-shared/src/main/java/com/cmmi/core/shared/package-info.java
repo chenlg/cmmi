@@ -3,6 +3,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 业务逻辑实现区. 
+ * Reason:	 核心区共享区
+ * 
+ *      共享封装常用函数
+ * 
  */
-package com.cmmi.biz.service.logic;
+package com.cmmi.core.shared;

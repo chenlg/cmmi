@@ -3,11 +3,8 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 TODO ADD REASON. 
+ * Reason:	 远程服务路由层. 
  * 
- * @author chenlg
- * @version $Id: package-info.java, v 0.1 2014年2月25日 下午4:23:26 chenlg Exp $
- * @since    JDK 1.7
- * @see
+ *  <p>调用远程soap、rest、jax接口</p>
  */
 package com.cmmi.common.service.remote;

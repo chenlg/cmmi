@@ -3,6 +3,9 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 业务逻辑实现区. 
+ * Reason:	 公共共享区
+ * 
+ *      <p>频繁时候类接口分装</p>. 
+ * 
  */
-package com.cmmi.biz.service.logic;
+package com.cmmi.common.shared.aspect;

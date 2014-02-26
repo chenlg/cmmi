@@ -3,6 +3,8 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 业务逻辑实现区. 
+ * Reason:	 公共工具区. 
+ * 
+ *  <p>mapper、security、beanvalidator等等</p>
  */
-package com.cmmi.biz.service.logic;
+package com.cmmi.common.utils;

@@ -6,7 +6,7 @@
  * Reason:	 
  *     biz 分支  facade 核心服务接口层. 
  *     
- *     主要包括 jaxrs、rest、soap 类开源接口
+ *     <p>主要包括 jaxrs、rest、soap 类开源接口</p>
  * 
  */
 package com.cmmi.common.service.facade;
