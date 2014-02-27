@@ -1,5 +1,4 @@
 package com.cmmi.test.soap;
-/*package com.cmmi.main.soap;
 
 import static org.junit.Assert.assertEquals;
 
@@ -18,15 +17,15 @@ import com.cmmi.common.service.response.soap.GetUserResult;
 import com.cmmi.common.service.response.soap.base.IdResult;
 import com.cmmi.common.service.response.soap.dto.UserDTO;
 
-*//**
- * AccountService Web服务的功能测�? 测试主要的接口调�?
+/**
+ * AccountService Web服务的功能测�? 测试主要的接口调�?
  * 
  * 使用在Spring applicaitonContext.xml中用<jaxws:client/>，根据AccountWebService接口创建的Client.
  * 
  * 集中在User相关接口.
  * 
  * @author calvin
- *//*
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
 @ContextConfiguration(locations = { "/applicationContext-soap-client.xml" })
@@ -35,18 +34,18 @@ public class AccountWebServiceWithPredefineClient {
     @Autowired
     private AccountSoapService accountWebServiceClient;
 
-    *//**
+    /**
      * 测试获取用户.
-     *//*
+     */
     @Test
     public void getUser() {
         GetUserResult response = accountWebServiceClient.getUser(1);
         assertEquals("admin", response.getUser().getUserAccount());
     }
 
-    *//**
+    /**
      * 测试创建用户.
-     *//*
+     */
     @Test
     public void createUser() {
         UserDTO user = new UserDTO();
@@ -61,4 +60,3 @@ public class AccountWebServiceWithPredefineClient {
     }
 
 }
-*/

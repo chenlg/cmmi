@@ -28,7 +28,7 @@
 	<httpclient.version>4.2.5</httpclient.version>
 	<junit.version>4.11</junit.version>
 	<mockito.version>1.9.5</mockito.version>
-	<cxf.version>2.7.5</cxf.version>
+	<cxf.version>2.7.10</cxf.version>
 	
 	<selenium.version>2.33.0</selenium.version>
 	<jetty.version>7.6.11.v20130520</jetty.version> 
@@ -167,8 +167,22 @@
 		<artifactId>spring-web</artifactId>
 		<version>${spring.version}</version>		
 	  </dependency>
-      <!-- Spring end -->     
+      <!-- Spring end -->   
 	  
+	  <!-- j2ee web spec -->
+	  <dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+		<version>2.5</version>
+		<scope>provided</scope>
+	  </dependency>
+	  <dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+	  </dependency>
+	  <!-- WEB end -->
+	
 	  <!-- PERSISTENCE begin -->
 	  <!-- spring data access -->
 	  <dependency>
@@ -287,6 +301,44 @@
 	  <dependency>
 		<groupId>org.apache.cxf</groupId>
 		<artifactId>cxf-rt-transports-http</artifactId>
+		<version>${cxf.version}</version>
+		<exclusions>
+			<!-- see above -->
+			<exclusion>
+				<groupId>org.apache.geronimo.specs</groupId>
+				<artifactId>geronimo-javamail_1.4_spec</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>org.apache.geronimo.specs</groupId>
+				<artifactId>geronimo-activation_1.1_spec</artifactId>
+			</exclusion>
+		</exclusions>
+	  </dependency>
+	  <!-- Jetty is needed if you're using the CXFServlet --> 
+	  <dependency>
+		<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-ws-rm</artifactId>
+		<version>${cxf.version}</version>
+	  </dependency>
+	  <dependency>
+		<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-ws-security</artifactId>
+		<version>${cxf.version}</version>
+		<exclusions>
+			<exclusion>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+			</exclusion>
+		</exclusions>
+	  </dependency>
+	  <dependency>
+		<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-ws-addr</artifactId>
+		<version>${cxf.version}</version>
+	  </dependency>
+	  <dependency>
+		<groupId>org.apache.cxf</groupId>
+		<artifactId>cxf-rt-ws-policy</artifactId>
 		<version>${cxf.version}</version>
 	  </dependency>
 	  <!-- SOAP end -->
@@ -684,10 +736,10 @@
 					<configuration>
 						<rules>
 							<requireMavenVersion>
-								<version>3.0.3</version>
+								<version>3.1.1</version>
 							</requireMavenVersion>
 							<requireJavaVersion>
-								<version>1.6</version>
+								<version>1.7</version>
 							</requireJavaVersion>
 							<bannedDependencies>
 								<searchTransitive>true</searchTransitive>
@@ -696,7 +748,7 @@
 									<exclude>commons-logging</exclude>
 									<exclude>aspectj:aspectj*</exclude>
 									<exclude>org.springframework:2.*</exclude>
-									<exclude>org.springframework:3.0.*</exclude>
+									<exclude>org.springframework:3.0.*</exclude> 
 								</excludes>
 							</bannedDependencies>
 						</rules>

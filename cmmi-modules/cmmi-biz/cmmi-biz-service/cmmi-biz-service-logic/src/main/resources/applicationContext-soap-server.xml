@@ -12,6 +12,5 @@
 	</jaxws:endpoint>
 
 	<!-- WebService的实现Bean定义 -->
-	<bean id="accountSoapService"
-		class="com.cmmi.biz.service.logic.soap.AccountSoapServiceImpl" />
+	<bean id="accountSoapService" class="com.cmmi.biz.service.logic.soap.AccountSoapServiceImpl" />
 </beans>
