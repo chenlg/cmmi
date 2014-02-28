@@ -13,7 +13,8 @@ import org.apache.cxf.phase.Phase;
 import org.apache.cxf.transport.http.AbstractHTTPDestination;
 
 /**
- * Reason:	 soap IP地址验证. 
+ * Reason:	 示例 实际使用需要修改设用的方式
+ *  <p>soap IP地址验证. </p>
  * 
  * @author chenlg
  * @version $Id: OauthIpAddressInInterceptor.java, v 0.1 2014年2月27日 上午11:17:42 chenlg Exp $

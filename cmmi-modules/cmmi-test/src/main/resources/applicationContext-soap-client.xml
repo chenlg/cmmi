@@ -1,16 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:cxf="http://cxf.apache.org/core" xmlns:context="http://www.springframework.org/schema/context"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:cxf="http://cxf.apache.org/core" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 	                    http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
 	                    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd"
 	default-lazy-init="true">
 	<description>Apache CXF Web Service Client端配置</description>
 
-	<context:property-placeholder ignore-resource-not-found="true"
-			location="classpath*:/application.functional.properties,
-          			  classpath*:/application.functional-local.properties" />	
-	
-	<jaxws:client id="accountWebServiceClient" serviceClass="com.cmmi.common.service.facade.soap.AccountSoapService"
-		address="http://localhost:8080/cmmi-server/cxf/soap/accountservice" />
+	<context:property-placeholder
+		ignore-resource-not-found="true"
+		location="classpath*:/application.functional.properties,
+          			  classpath*:/application.functional-local.properties" />
+
+
+	<!-- Http Basic Auth 测试
+	<bean id="clientOutPasswordCallback" class="com.cmmi.test.soap.ClientHttpBasicAuthCallback"></bean>
+
+	<bean id="clientWSS4JOutInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+		<constructor-arg>
+			<map>
+				<entry key="action" value="UsernameToken Timestamp" />
+				 MD5加密明文密码 
+				<entry key="passwordType" value="PasswordDigest" />
+				<entry key="user" value="admin" />
+				<entry key="passwordCallbackRef">
+					<ref bean="clientOutPasswordCallback" />
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+ 	-->
+ 	
+	<!-- cert auth 测试 -->
+	<bean id="passwordCallback" class="com.cmmi.test.soap.ClientOauthCertCallback"></bean>
+	<bean id="clientWSS4JInInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+		<property name="properties">
+			<map>
+				<entry key="action" value="Timestamp Encrypt Signature" />
+				<entry key="passwordCallbackRef">
+					<ref bean="passwordCallback" />
+				</entry>
+				<entry key="decryptionPropFile" value="etc/Client_Sign.properties" />
+				<entry key="signaturePropFile" value="etc/Client_Encrypt.properties" />
+			</map>
+		</property>
+	</bean>
+	<bean id="clientWSS4JOutInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+		<property name="properties">
+			<map>
+				<entry key="action" value="Timestamp Encrypt Signature" />
+				<entry key="passwordType" value="PasswordDigest" />
+				<entry key="user" value="admin" />
+				<entry key="passwordCallbackRef">
+					<ref bean="passwordCallback" />
+				</entry>
+				<entry key="encryptionPropFile" value="etc/Client_Encrypt.properties" />
+				<entry key="encryptionUser" value="serverkey" />
+				<entry key="signaturePropFile" value="etc/Client_Sign.properties" />
+				<entry key="signatureUser" value="clientkey" />
+			</map>
+		</property>
+	</bean>
+
+
+	<jaxws:client id="accountWebServiceClient"
+		serviceClass="com.cmmi.common.service.facade.soap.AccountSoapService"
+		address="http://localhost:8080/cmmi-server/cxf/soap/accountservice">
+		<!-- <jaxws:outInterceptors> <ref bean="clientWSS4JOutInterceptor" /> </jaxws:outInterceptors>  -->
+		  <jaxws:inInterceptors>  
+            <ref bean="clientWSS4JInInterceptor"/>  
+        </jaxws:inInterceptors>  
+        <jaxws:outInterceptors>  
+            <ref bean="clientWSS4JOutInterceptor" />  
+        </jaxws:outInterceptors>
+	</jaxws:client>
 </beans>

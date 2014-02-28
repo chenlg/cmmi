@@ -13,7 +13,7 @@
 	
 	<description>soap接口安全认证机制配置</description>
 		
-	<!--   IP地址输入拦截器  
+	<!-- 方法1: IP地址输入拦截器  
 	<bean id="ipAddressInInterceptor" class="com.cmmi.biz.shared.oauth.OauthIpAddressInInterceptor" />
 	全局Bus(输入拦截器)
 	<cxf:bus>
@@ -22,11 +22,87 @@
 		</cxf:inInterceptors>
 	</cxf:bus> -->
 	
-	<cxf:bus>  
-        <cxf:features>  
-            <cxf:logging />  
-            <wsa:addressing />  
-        </cxf:features>  
-    </cxf:bus>  
 	
+	<!--方法2: 1.最简单的方式是使用Http Basic Auth，就是WSS4J的UsernameToken实现方式，优点是简单易用，缺点是每次都会在MESSAGE里面传密码，安全性低。
+		 2.Transport level(传输层内)的实现Https。CXF samples里面有一个例子wsdl_first_https， 很详细的讲了怎么使用。
+		 3.对MESSAGE进行加密和签名(encryption and signing)， 
+	<bean id="serverPasswordCallback" class="com.cmmi.biz.shared.oauth.OauthHttpBasicCallback"></bean>
+	<bean id="serverWSS4JInInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+		<constructor-arg>
+			<map>
+				<entry key="action" value="UsernameToken Timestamp" />
+				MD5加密明文密码 
+				<entry key="passwordType" value="PasswordDigest" />
+				<entry key="passwordCallbackRef">
+					<ref bean="serverPasswordCallback" />
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	<cxf:bus>  
+		<cxf:inInterceptors>
+			<bean class="org.apache.cxf.interceptor.LoggingInInterceptor" />
+			<ref bean="serverWSS4JInInterceptor" />
+		</cxf:inInterceptors>
+		<cxf:outInterceptors>
+			<bean class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
+		</cxf:outInterceptors>
+		<cxf:properties>
+			<entry key="mtom-enabled" value="true" />
+		</cxf:properties>
+    </cxf:bus>  
+    -->
+    
+    <!--  方法1:证书认证-->
+    <cxf:bus> 
+     	<cxf:inInterceptors>  
+            <ref bean="serverWSS4JInInterceptor" />  
+            <bean class="org.apache.cxf.interceptor.LoggingInInterceptor" />  
+        </cxf:inInterceptors>  
+        <cxf:outInterceptors>  
+            <ref bean="serverWSS4JOutInterceptor" />  
+            <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor" />  
+        </cxf:outInterceptors> 
+    </cxf:bus>  
+     
+     
+    <bean id="passwordCallback" class="com.cmmi.biz.shared.oauth.OauthCertCallback"></bean>  
+    <bean id="serverWSS4JInInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">  
+        <property name="properties">  
+            <map>  
+                <entry key="action" value="Timestamp Encrypt Signature" />  
+			       <!-- 服务器会自动在SOAP中拿到解码（私钥）的用户名，并在 PasswordCallback中取到密码。  
+			                    公钥不需要密码。   -->
+                <entry key="passwordCallbackRef">  
+                    <ref bean="passwordCallback" />  
+                </entry>  
+                <entry key="decryptionPropFile" value="etc/Server_Decrypt.properties" />  
+                <entry key="signaturePropFile" value="etc/Server_SignVerf.properties" />  
+            </map>  
+        </property>  
+    </bean>  
+    <bean id="serverWSS4JOutInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">  
+        <property name="properties">  
+            <map>  
+		       <!-- 此处配置需注意，当指定Signature时就必须像UsernameToken那样指定user和passwordCallbackRef。  
+		                    因为假如我们没指定signatureUser或者encryptionUser，CXF将会使用user来替代之，而signatureUser的  
+		                    密码必须通过passwordCallbackRef赋值。所以哪怕定义了signatureUser也必须同时定义user，  
+		                    且不能为空。  
+		                    公钥不需要密码。   -->
+                <entry key="action" value="Timestamp Encrypt Signature" />  
+                 <!--  MD5加密明文密码   -->
+                <entry key="passwordType" value="PasswordDigest" />  
+                 <!-- 该用户名只能在激活了UsernameToken时才能拿到并使用  -->
+                <entry key="user" value="admin" />  
+                <entry key="passwordCallbackRef">  
+                    <ref bean="passwordCallback" />  
+                </entry>  
+                <entry key="encryptionPropFile" value="etc/Server_SignVerf.properties" />  
+                <entry key="encryptionUser" value="clientkey" />  
+                <entry key="signaturePropFile" value="etc/Server_Decrypt.properties" />  
+                <entry key="signatureUser" value="serverkey" />  
+            </map>  
+        </property>  
+    </bean>  
+    
 </beans>

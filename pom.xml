@@ -332,6 +332,11 @@
 		</exclusions>
 	  </dependency>
 	  <dependency>
+		<groupId>org.bouncycastle</groupId>
+		<artifactId>bcprov-jdk16</artifactId>
+		<version>1.46</version>
+	  </dependency>   
+	  <dependency>
 		<groupId>org.apache.cxf</groupId>
 		<artifactId>cxf-rt-ws-addr</artifactId>
 		<version>${cxf.version}</version>
@@ -736,7 +741,7 @@
 					<configuration>
 						<rules>
 							<requireMavenVersion>
-								<version>3.1.1</version>
+								<version>3.0.3</version>
 							</requireMavenVersion>
 							<requireJavaVersion>
 								<version>1.7</version>
