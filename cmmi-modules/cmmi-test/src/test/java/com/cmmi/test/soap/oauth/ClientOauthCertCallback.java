@@ -2,7 +2,7 @@
  * Copyright (c) 2014, lingang.chen@gmail.com  All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
-package com.cmmi.test.soap;
+package com.cmmi.test.soap.oauth;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ import javax.security.auth.callback.UnsupportedCallbackException;
 import org.apache.ws.security.WSPasswordCallback;
 
 /**
- * Reason:	 TODO ADD REASON. 
+ * Reason:	 soap 证书认证
  * 
  * @author chenlg
  * @version $Id: ClientOauthCertCallback.java, v 0.1 2014年2月28日 上午11:51:21 chenlg Exp $

@@ -15,7 +15,7 @@
 
 
 	<!-- Http Basic Auth 测试
-	<bean id="clientOutPasswordCallback" class="com.cmmi.test.soap.ClientHttpBasicAuthCallback"></bean>
+	<bean id="clientOutPasswordCallback" class="com.cmmi.test.soap.oauth.ClientHttpBasicAuthCallback"></bean>
 
 	<bean id="clientWSS4JOutInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
 		<constructor-arg>
@@ -33,7 +33,7 @@
  	-->
  	
 	<!-- cert auth 测试 -->
-	<bean id="passwordCallback" class="com.cmmi.test.soap.ClientOauthCertCallback"></bean>
+	<bean id="passwordCallback" class="com.cmmi.test.soap.oauth.ClientOauthCertCallback"></bean>
 	<bean id="clientWSS4JInInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
 		<property name="properties">
 			<map>

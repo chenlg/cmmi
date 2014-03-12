@@ -41,7 +41,7 @@ import com.cmmi.core.persistant.po.account.UserPO;
  */
 //serviceName指明WSDL中<wsdl:service>与<wsdl:binding>元素的名称, endpointInterface属性指向Interface类全称.
 @WebService(serviceName = "AccountService", endpointInterface = "com.cmmi.common.service.facade.soap.AccountSoapService", targetNamespace = WsConstants.NS)
-public class AccountSoapServiceImpl extends LogicHandleError implements AccountSoapService  {
+public class AccountSoapServiceImpl extends LogicHandleError implements AccountSoapService {
 
     private static Logger logger = LoggerFactory.getLogger(AccountSoapServiceImpl.class);
 
@@ -54,7 +54,7 @@ public class AccountSoapServiceImpl extends LogicHandleError implements AccountS
     private Validator     validator;
 
     @Override
-    @AspectLogger( value="用户查询",discover=true)
+    @AspectLogger(value = "用户查询", discover = true)
     public GetUserResult getUser(Integer id) {
         if (logger.isInfoEnabled())
             logger.info("测试获取用户信息!");
@@ -74,14 +74,14 @@ public class AccountSoapServiceImpl extends LogicHandleError implements AccountS
             result.setUser(userDto);
             return result;
         } catch (IllegalArgumentException e) {
-            if(logger.isErrorEnabled())
-                 logger.error(e.getMessage());
-            
+            if (logger.isErrorEnabled())
+                logger.error(e.getMessage());
+
             return handleParameterError(result, e);
         } catch (RuntimeException e) {
-            if(logger.isErrorEnabled())
+            if (logger.isErrorEnabled())
                 logger.error(e.getMessage());
-            
+
             return handleGeneralError(result, e);
         }
     }
@@ -110,18 +110,16 @@ public class AccountSoapServiceImpl extends LogicHandleError implements AccountS
         } catch (RuntimeException e) {
             if (ServiceExceptions.isCausedBy(e, DuplicateKeyException.class)) {
                 String message = "新建用户参数存在唯一性冲突(用户:" + userPo + ")";
-                if(logger.isErrorEnabled())
-                    logger.error(message,e.getMessage());
+                if (logger.isErrorEnabled())
+                    logger.error(message, e.getMessage());
                 return handleParameterError(result, e, message);
             } else {
-                if(logger.isErrorEnabled())
+                if (logger.isErrorEnabled())
                     logger.error(e.getMessage());
-                
+
                 return handleParameterError(result, e);
             }
         }
     }
-
-
 
 }

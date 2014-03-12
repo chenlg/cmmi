@@ -255,7 +255,7 @@
 	<!-- ===================================================================== -->
     <!-- Root logger                                                           -->
     <!-- ===================================================================== -->
-	<root level="INFO">
+	<root level="DEBUG">
 		<appender-ref ref="console" />
 		<appender-ref ref="DEFAULT-APPENDER" />
 		<appender-ref ref="ERROR-APPENDER"/>

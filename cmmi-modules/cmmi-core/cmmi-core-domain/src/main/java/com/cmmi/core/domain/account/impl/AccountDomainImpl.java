@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +25,6 @@ import com.cmmi.core.persistant.repository.account.UserMybatisDao;
  * @since    JDK 1.7
  * @see
  */
-
 @Component("accountDomain")
 @Transactional(readOnly = true)
 public class AccountDomainImpl implements AccountDomain {

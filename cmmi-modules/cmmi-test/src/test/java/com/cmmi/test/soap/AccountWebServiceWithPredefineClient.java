@@ -2,8 +2,6 @@ package com.cmmi.test.soap;
 
 import static org.junit.Assert.assertEquals;
 
-import javax.validation.constraints.AssertTrue;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +16,7 @@ import com.cmmi.common.service.response.soap.base.IdResult;
 import com.cmmi.common.service.response.soap.dto.UserDTO;
 
 /**
- * AccountService Web服务的功能测�? 测试主要的接口调�?
+ * AccountService Web服务的功能测试 测试主要的接口调用
  * 
  * 使用在Spring applicaitonContext.xml中用<jaxws:client/>，根据AccountWebService接口创建的Client.
  * 
