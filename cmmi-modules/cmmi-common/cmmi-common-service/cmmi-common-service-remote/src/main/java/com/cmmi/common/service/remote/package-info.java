@@ -5,6 +5,6 @@
 /**
  * Reason:	 远程服务路由层. 
  * 
- *  <p>调用远程soap、rest、jax接口</p>
+ *  <p>调用远程soap、rest、jax接口层</p>
  */
 package com.cmmi.common.service.remote;

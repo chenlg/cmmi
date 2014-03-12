@@ -5,7 +5,7 @@
 /**
  * Reason:	 公共共享区
  * 
- *      <p>频繁时候类接口分装</p>. 
+ *      <p>common remote 层 频繁使用类接口分装</p>. 
  * 
  */
 package com.cmmi.common.shared.aspect;

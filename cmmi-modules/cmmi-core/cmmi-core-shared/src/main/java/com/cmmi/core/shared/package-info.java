@@ -5,7 +5,7 @@
 /**
  * Reason:	 核心区共享区
  * 
- *      共享封装常用函数
+ *      <p>共享封装常用函数</p>
  * 
  */
 package com.cmmi.core.shared;

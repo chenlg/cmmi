@@ -3,9 +3,8 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 
- *    Data access object数据访问对象.
+ * Reason:	  Data access object数据访问对象.
  *    
- *    功能:用来封装对数据库的访问.
+ *  <p>  功能:用来封装对数据库的访问. </p>
  */
 package com.cmmi.core.persistant.repository;

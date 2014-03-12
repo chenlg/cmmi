@@ -3,6 +3,6 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 核心区内缓存服务区
+ * Reason:	 核心层内缓存区域区
  */
 package com.cmmi.core.process.cache;

@@ -3,10 +3,8 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 
- *      核心领域层. 
+ * Reason:	  核心领域层. 
  *      
- *      功能： 事务、业务领域层.
- * 
+ *    <p>  功能： 事务、业务领域层. </p>
  */
 package com.cmmi.core.domain;

@@ -4,5 +4,11 @@
  */
 /**
  * Reason:	 业务逻辑实现区. 
+ *  <p>主要业务逻辑层描述</p>
+ *   <ul>
+ *      <li>1.jaxrs 层</li>
+ *      <li>2.soap 层</li>
+ *      <li>3.rest  层</li>
+ *   </ul>
  */
 package com.cmmi.biz.service.logic;

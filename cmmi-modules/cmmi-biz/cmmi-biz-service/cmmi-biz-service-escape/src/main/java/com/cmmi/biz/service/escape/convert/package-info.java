@@ -3,7 +3,8 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 JDK 、自定义等类扩展区
+ * Reason:    biz 层转义区
  * 
+ *  <p>PO-BO-DTO 转义服务层</p>
  */
-package com.cmmi.core.process.extension;
+package com.cmmi.biz.service.escape.convert;

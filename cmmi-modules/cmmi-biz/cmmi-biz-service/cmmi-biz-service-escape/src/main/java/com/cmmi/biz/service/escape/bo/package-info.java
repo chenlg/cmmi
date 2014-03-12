@@ -3,7 +3,6 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 JDK 、自定义等类扩展区
- * 
+ * Reason:    业务对象区域
  */
-package com.cmmi.core.process.extension;
+package com.cmmi.biz.service.escape.bo;
