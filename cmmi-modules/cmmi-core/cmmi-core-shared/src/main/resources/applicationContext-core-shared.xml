@@ -11,7 +11,7 @@
 	<description>项目日志拦截配置</description>
 
 	<!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 这里只扫描domain层  -->
-	<context:component-scan base-package="com.cmmi.core.shared"
+	<context:component-scan base-package="com.cmmi.core.shared.aspect"
 		use-default-filters="false">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Component" />

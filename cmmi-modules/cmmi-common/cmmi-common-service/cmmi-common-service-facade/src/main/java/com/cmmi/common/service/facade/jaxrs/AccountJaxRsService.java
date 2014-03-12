@@ -7,17 +7,17 @@ package com.cmmi.common.service.facade.jaxrs;
 import javax.ws.rs.PathParam;
 
 import com.cmmi.common.service.response.jaxrs.dto.UserDTO;
+import com.cmmi.common.shared.annotation.Description;
 
 /**
- * Reason:	 cxf jax webservice 该接口主要用户描述接口具体调用，
- *   <p>对与其他无效果<p/>. 
+ * Reason:	 该接口主要用户描述接口具体调用.对与其他无效果. 
  * 
  * @author chenlg
  * @version $Id: AccountJaxRsService.java, v 0.1 2014年2月25日 下午2:58:26 chenlg Exp $
  * @since    JDK 1.7
  * @see
  */
-@Deprecated
+@Description
 public interface AccountJaxRsService {
     
     /**

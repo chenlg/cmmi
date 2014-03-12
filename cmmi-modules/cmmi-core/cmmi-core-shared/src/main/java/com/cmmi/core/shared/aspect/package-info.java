@@ -3,6 +3,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 biz 层日志拦截. 
+ * Reason:	 core 层日志拦截. 
+ * 
  */
-package com.cmmi.biz.shared.aspect;
+package com.cmmi.core.shared.aspect;

@@ -16,10 +16,10 @@ import com.cmmi.core.persistant.po.account.UserPO;
 import com.cmmi.core.persistant.repository.account.UserMybatisDao;
 
 /**
- * Reason:	用户业务领域层具体实现.
+ * Reason:	业务领域层具体实现.
  * 
  * @author chenlg
- * @version $Id: UserDomainImpl.java, v 0.1 2014年2月19日 下午2:46:22 chenlg Exp $
+ * @version $Id: AccountDomainImpl.java, v 0.1 2014年2月19日 下午2:46:22 chenlg Exp $
  * @since    JDK 1.7
  * @see
  */

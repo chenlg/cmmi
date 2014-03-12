@@ -11,10 +11,10 @@ import java.util.Map;
 import com.cmmi.core.persistant.po.account.UserPO;
 
 /**
- * Reason:	 用户业务领域层. 
+ * Reason:	 业务领域层. 
  * 
  * @author chenlg
- * @version $Id: UserDomain.java, v 0.1 2014年2月19日 下午2:39:58 chenlg Exp $
+ * @version $Id: AccountDomain.java, v 0.1 2014年2月19日 下午2:39:58 chenlg Exp $
  * @since    JDK 1.7
  * @see
  */

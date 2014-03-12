@@ -9,7 +9,6 @@ import javax.jws.WebService;
 
 import com.cmmi.common.service.response.WsConstants;
 import com.cmmi.common.service.response.soap.GetUserResult;
-import com.cmmi.common.service.response.soap.SearchUserResult;
 import com.cmmi.common.service.response.soap.base.IdResult;
 import com.cmmi.common.service.response.soap.dto.UserDTO;
 

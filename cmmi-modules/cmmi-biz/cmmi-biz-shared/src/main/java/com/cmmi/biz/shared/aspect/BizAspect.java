@@ -2,7 +2,7 @@
  * Copyright (c) 2014, lingang.chen@gmail.com  All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
-package com.cmmi.common.shared.aspect;
+package com.cmmi.biz.shared.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -14,36 +14,38 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.cmmi.common.shared.annotation.AspectLogger;
+
 /**
- * Reason:	 公共层日志拦截器.
+ * Reason:	 业务层日志拦截器.
  * 
  * @author chenlg
- * @version $Id: CommonLogAspect.java, v 0.1 2014年2月24日 下午4:23:02 chenlg Exp $
+ * @version $Id: BizAspect.java, v 0.1 2014年2月24日 下午4:23:02 chenlg Exp $
  * @since    JDK 1.7
  * @see
  */
 @Component
 @Aspect
-public class CommonLogAspect{
+public class BizAspect {
 
-    private static Logger logger = LoggerFactory.getLogger("CMMI_COMMON_DIGEST");
+    private static Logger logger = LoggerFactory.getLogger("CMMI_BIZ_DIGEST");
 
     /** 
      * 添加业务逻辑方法切入点 
      */
-    @Pointcut("execution(*  com.cmmi.common.service..*.*(..)) ")
-    public void commonPointcut() {
+    @Pointcut("execution(*  com.cmmi.biz..*.*(..)) ")
+    public void bizPointcut() {
         // 定义一个pointcut，下面用Annotation标注的通知方法可以公用这个pointcut  
     }
 
     /**
-     * 异常通知.
+     * 异常通知.  
      * 
      * @param jionpoint
      * @param e
      */
-    @AfterThrowing(pointcut = "commonPointcut()", throwing = "e")
-    public void throwingAdvice(JoinPoint jionpoint, Exception e) {
+    @AfterThrowing(pointcut = "bizPointcut()   &&  @annotation(aspectLogger)", throwing = "e")
+    public void throwingAdvice(JoinPoint jionpoint, AspectLogger aspectLogger, Exception e) {
         /*
          * 获取被调用的类名.  
          */
@@ -53,16 +55,21 @@ public class CommonLogAspect{
          */
         String targetMethodName = jionpoint.getSignature().getName();
         /*
+         * 注解日志描述.
+         */
+        String desc = aspectLogger.value();
+        /*
          * 日志格式字符串.
          */
         StringBuilder aspectMessage = new StringBuilder();
-        aspectMessage.append("[日志]:方法(").append(targetClassName).append(".")
-            .append(targetMethodName).append(")").append(",状态(异常)");
+
+        aspectMessage.append("[日志]:业务(").append(desc).append("),方法(").append(targetClassName)
+            .append(".").append(targetMethodName).append(")").append(",状态(异常)");
 
         /*
          * 日志记录.
          */
-        logger.info(aspectMessage.toString()); 
+        logger.info(aspectMessage.toString());
     }
 
     /**
@@ -72,12 +79,22 @@ public class CommonLogAspect{
      * @return
      * @throws Throwable
      */
-    @Around("commonPointcut()")
-    public Object aroundAdvice(ProceedingJoinPoint jionpoint) throws Throwable {
+    @Around("bizPointcut() &&  @annotation(aspectLogger)")
+    public Object aroundAdvice(ProceedingJoinPoint jionpoint, AspectLogger aspectLogger)
+                                                                                        throws Throwable {
         /*
          * 起始时间.
          */
         long l1 = System.currentTimeMillis();
+
+        /*
+         * 注解日志描述.
+         */
+        String desc = aspectLogger.value();
+        /*
+         * 是否检测方法运行情况.
+         */
+        //boolean discover = aspectLogger.discover();
 
         /*
          * 获取被调用的方法名.  
@@ -99,9 +116,9 @@ public class CommonLogAspect{
          * 日志格式字符串.
          */
         StringBuilder aspectMessage = new StringBuilder();
-        
-        aspectMessage.append("[日志]:方法(").append(targetClassName).append(".")
-            .append(targetMethodName).append("),时间(").append((l2 - l1)).append("ms)")
+
+        aspectMessage.append("[日志]:业务(").append(desc).append("),方法(").append(targetClassName)
+            .append(".").append(targetMethodName).append("),时间(").append((l2 - l1)).append("ms)")
             .append(",状态(正常)");
 
         /*

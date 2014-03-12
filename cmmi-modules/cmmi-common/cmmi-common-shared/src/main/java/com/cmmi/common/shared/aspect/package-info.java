@@ -3,9 +3,6 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 公共共享区
- * 
- *      <p>common remote 层 频繁使用类接口分装</p>. 
- * 
+ * Reason:	 common层日志拦截
  */
 package com.cmmi.common.shared.aspect;

@@ -40,6 +40,7 @@ public class ServiceExceptions {
     /**
      * 判断异常是否由某些底层的异常引起.
      */
+    @SafeVarargs
     public static boolean isCausedBy(Exception ex, Class<? extends Exception>... causeExceptionClasses) {
         Throwable cause = ex;
         while (cause != null) {

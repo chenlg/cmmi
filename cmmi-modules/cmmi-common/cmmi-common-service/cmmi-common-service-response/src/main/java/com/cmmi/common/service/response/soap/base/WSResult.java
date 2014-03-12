@@ -21,7 +21,7 @@ public class WSResult {
 	public static final String SYSTEM_ERROR = "500";
 	public static final String SYSTEM_ERROR_MESSAGE = "Runtime unknown internal error.";
 
-	// -- WSResult基本属�? --//
+	// -- WSResult基本属性 --//
 	private String code = SUCESS;
 	private String message;
 

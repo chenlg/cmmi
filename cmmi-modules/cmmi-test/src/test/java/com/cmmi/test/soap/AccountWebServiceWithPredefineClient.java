@@ -24,7 +24,7 @@ import com.cmmi.common.service.response.soap.dto.UserDTO;
  * 
  * 集中在User相关接口.
  * 
- * @author calvin
+ * @author chenlg
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })

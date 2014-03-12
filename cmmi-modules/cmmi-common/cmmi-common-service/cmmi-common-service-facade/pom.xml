@@ -51,5 +51,10 @@
 			<groupId>com.cmmi</groupId>
 			<artifactId>cmmi-common-service-response</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.cmmi</groupId>
+			<artifactId>cmmi-common-shared</artifactId>
+		</dependency>
 	</dependencies>
 </project>

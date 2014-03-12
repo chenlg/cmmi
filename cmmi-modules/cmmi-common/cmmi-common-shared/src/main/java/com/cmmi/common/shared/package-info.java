@@ -3,6 +3,8 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 biz 层日志拦截. 
+ * Reason:   公共区共享区
+ * 
+ *   <p>共享封装常用函数</p>
  */
-package com.cmmi.biz.shared.aspect;
+package com.cmmi.common.shared;

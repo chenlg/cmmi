@@ -7,11 +7,11 @@
 	                    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd"
 	default-lazy-init="true">
 	<description>Apache CXF Web Service Client端配置</description>
-
+<!-- 
 	<context:property-placeholder
 		ignore-resource-not-found="true"
 		location="classpath*:/application.functional.properties,
-          			  classpath*:/application.functional-local.properties" />
+          			  classpath*:/application.functional-local.properties" /> -->
 
 
 	<!-- Http Basic Auth 测试

@@ -24,8 +24,17 @@ import com.cmmi.common.service.response.jaxrs.dto.UserDTO;
 import com.cmmi.core.domain.account.AccountDomain;
 import com.cmmi.core.persistant.po.account.UserPO;
 
+/**
+ * Reason:	Jaxrs的WebService接口定义类.
+ * <p>实现借口是为了描述具体的接口调用信息</p>
+ * 
+ * @author chenlg
+ * @version $Id: AccountJaxRsServiceImpl.java, v 0.1 2014年3月12日 下午3:26:21 chenlg Exp $
+ * @since    JDK 1.7
+ * @see
+ */
 @Path("/user")
-public class AccountJaxRsServiceImpl  implements AccountJaxRsService{
+public class AccountJaxRsServiceImpl implements AccountJaxRsService {
 
     private static Logger logger = LoggerFactory.getLogger(AccountJaxRsServiceImpl.class);
 
@@ -40,6 +49,9 @@ public class AccountJaxRsServiceImpl  implements AccountJaxRsService{
         UserPO userPo = accountDomain.getUser(id);
         if (userPo == null) {
             String message = "用户不存在(id:" + id + ")";
+            if (logger.isInfoEnabled())
+                logger.info(message);
+
             throw buildException(Status.NOT_FOUND, message);
         }
         return bindDTO(userPo);
@@ -52,6 +64,9 @@ public class AccountJaxRsServiceImpl  implements AccountJaxRsService{
         UserPO userPo = accountDomain.getUser(id);
         if (userPo == null) {
             String message = "用户不存在(id:" + id + ")";
+            if (logger.isInfoEnabled())
+                logger.info(message);
+
             throw buildException(Status.NOT_FOUND, message);
         }
         return bindDTO(userPo);
@@ -69,5 +84,4 @@ public class AccountJaxRsServiceImpl  implements AccountJaxRsService{
             .type(MediaType.TEXT_PLAIN).build());
     }
 
-    
 }

@@ -5,15 +5,15 @@
 package com.cmmi.common.service.response;
 
 /**
- * Reason:     WebService常量定义.
+ * Reason:	 WebService常量定义.
  * 
  * @author chenlg
- * @version $Id: AccountSoapService.java, v 0.1 2014�?�?9�?下午3:37:17 chenlg Exp $
+ * @version $Id: WsConstants.java, v 0.1 2014年3月12日 下午3:22:29 chenlg Exp $
  * @since    JDK 1.7
  * @see
  */
 public class WsConstants {
 
-	/** 项目内统�?��NameSpace定义. **/
-	public static final String NS = "http://shwocase.examples.springside.org";
+    /** 项目内统一的NameSpace定义. **/
+	public static final String NS = "http:/www.chenlg.cmmi.org";
 }

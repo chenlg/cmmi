@@ -17,13 +17,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DuplicateKeyException;
 
+import com.cmmi.biz.service.logic.exception.LogicHandleError;
 import com.cmmi.biz.service.logic.exception.ServiceExceptions;
 import com.cmmi.common.service.facade.soap.AccountSoapService;
 import com.cmmi.common.service.response.WsConstants;
 import com.cmmi.common.service.response.soap.GetUserResult;
 import com.cmmi.common.service.response.soap.base.IdResult;
-import com.cmmi.common.service.response.soap.base.WSResult;
 import com.cmmi.common.service.response.soap.dto.UserDTO;
+import com.cmmi.common.shared.annotation.AspectLogger;
 import com.cmmi.common.utils.beanvalidator.BeanValidators;
 import com.cmmi.core.domain.account.AccountDomain;
 import com.cmmi.core.persistant.po.account.UserPO;
@@ -40,7 +41,7 @@ import com.cmmi.core.persistant.po.account.UserPO;
  */
 //serviceName指明WSDL中<wsdl:service>与<wsdl:binding>元素的名称, endpointInterface属性指向Interface类全称.
 @WebService(serviceName = "AccountService", endpointInterface = "com.cmmi.common.service.facade.soap.AccountSoapService", targetNamespace = WsConstants.NS)
-public class AccountSoapServiceImpl implements AccountSoapService {
+public class AccountSoapServiceImpl extends LogicHandleError implements AccountSoapService  {
 
     private static Logger logger = LoggerFactory.getLogger(AccountSoapServiceImpl.class);
 
@@ -53,6 +54,7 @@ public class AccountSoapServiceImpl implements AccountSoapService {
     private Validator     validator;
 
     @Override
+    @AspectLogger( value="用户查询",discover=true)
     public GetUserResult getUser(Integer id) {
         if (logger.isInfoEnabled())
             logger.info("测试获取用户信息!");
@@ -72,8 +74,14 @@ public class AccountSoapServiceImpl implements AccountSoapService {
             result.setUser(userDto);
             return result;
         } catch (IllegalArgumentException e) {
+            if(logger.isErrorEnabled())
+                 logger.error(e.getMessage());
+            
             return handleParameterError(result, e);
         } catch (RuntimeException e) {
+            if(logger.isErrorEnabled())
+                logger.error(e.getMessage());
+            
             return handleGeneralError(result, e);
         }
     }
@@ -102,29 +110,18 @@ public class AccountSoapServiceImpl implements AccountSoapService {
         } catch (RuntimeException e) {
             if (ServiceExceptions.isCausedBy(e, DuplicateKeyException.class)) {
                 String message = "新建用户参数存在唯一性冲突(用户:" + userPo + ")";
+                if(logger.isErrorEnabled())
+                    logger.error(message,e.getMessage());
                 return handleParameterError(result, e, message);
             } else {
+                if(logger.isErrorEnabled())
+                    logger.error(e.getMessage());
+                
                 return handleParameterError(result, e);
             }
         }
     }
 
-    private <T extends WSResult> T handleParameterError(T result, Exception e, String message) {
-        logger.error(message, e.getMessage());
-        result.setError(WSResult.PARAMETER_ERROR, message);
-        return result;
-    }
 
-    private <T extends WSResult> T handleParameterError(T result, Exception e) {
-        logger.error(e.getMessage());
-        result.setError(WSResult.PARAMETER_ERROR, e.getMessage());
-        return result;
-    }
-
-    private <T extends WSResult> T handleGeneralError(T result, Exception e) {
-        logger.error(e.getMessage());
-        result.setDefaultError();
-        return result;
-    }
 
 }
