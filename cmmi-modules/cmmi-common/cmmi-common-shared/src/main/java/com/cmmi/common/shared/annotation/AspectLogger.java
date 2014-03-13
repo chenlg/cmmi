@@ -16,7 +16,6 @@ import java.lang.annotation.Target;
  * @author chenlg
  * @version $Id: AspectLogger.java, v 0.1 2014年3月12日 下午3:51:35 chenlg Exp $
  * @since    JDK 1.7
- * @see
  */
 @Target({ ElementType.METHOD })
 @Retention(RetentionPolicy.RUNTIME)

@@ -31,7 +31,6 @@ import com.cmmi.core.persistant.po.account.UserPO;
  * @author chenlg
  * @version $Id: AccountJaxRsServiceImpl.java, v 0.1 2014年3月12日 下午3:26:21 chenlg Exp $
  * @since    JDK 1.7
- * @see
  */
 @Path("/user")
 public class AccountJaxRsServiceImpl implements AccountJaxRsService {

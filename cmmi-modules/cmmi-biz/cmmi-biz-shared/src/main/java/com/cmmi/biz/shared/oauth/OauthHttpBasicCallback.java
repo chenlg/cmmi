@@ -24,7 +24,6 @@ import org.apache.ws.security.WSPasswordCallback;
  * @author chenlg
  * @version $Id: OauthHttpBasicCallback.java, v 0.1 2014年2月28日 上午10:40:52 chenlg Exp $
  * @since    JDK 1.7
- * @see
  */
 public class OauthHttpBasicCallback implements CallbackHandler {
 

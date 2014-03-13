@@ -27,7 +27,7 @@ import com.cmmi.common.service.response.soap.dto.UserDTO;
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
 @ContextConfiguration(locations = { "/applicationContext-soap-client.xml" })
-public class AccountWebServiceWithPredefineClientTest {
+public class AccountWebServiceClientTest {
 
     @Autowired
     private AccountSoapService accountWebServiceClient;

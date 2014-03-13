@@ -13,7 +13,6 @@ import java.io.StringWriter;
  * @author chenlg
  * @version $Id: ServiceExceptions.java, v 0.1 2014年2月21日 上午10:37:55 chenlg Exp $
  * @since    JDK 1.7
- * @see
  */
 public class ServiceExceptions {
 

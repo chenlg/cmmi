@@ -75,7 +75,7 @@
 		
 	</beans>
 
-	<!-- functional test环境 -->
+	<!-- test环境 -->
 	<beans profile="test">
 		<context:property-placeholder ignore-resource-not-found="true"
 			location="classpath*:/application.properties,

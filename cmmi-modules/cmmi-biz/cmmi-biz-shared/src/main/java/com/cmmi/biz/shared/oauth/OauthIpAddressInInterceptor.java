@@ -19,7 +19,6 @@ import org.apache.cxf.transport.http.AbstractHTTPDestination;
  * @author chenlg
  * @version $Id: OauthIpAddressInInterceptor.java, v 0.1 2014年2月27日 上午11:17:42 chenlg Exp $
  * @since    JDK 1.7
- * @see
  */
 public class OauthIpAddressInInterceptor extends AbstractPhaseInterceptor<Message> {
 

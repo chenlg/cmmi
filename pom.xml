@@ -31,6 +31,8 @@
 	<cxf.version>2.7.10</cxf.version>
 	
 	<selenium.version>2.33.0</selenium.version>
+	<powermock.version>1.5.4</powermock.version>
+	<assertj.version>1.5.0</assertj.version>
 	<jetty.version>7.6.11.v20130520</jetty.version> 
 		
     <!-- Plugin的属性定义 -->
@@ -493,11 +495,38 @@
 		<scope>test</scope>
 	  </dependency>
 
+	  <!-- assertj -->
+	  <dependency>
+		<groupId>org.assertj</groupId>
+		<artifactId>assertj-core</artifactId>
+		<version>${assertj.version}</version>
+		<scope>test</scope>
+	  </dependency>
+	  
+	  <!-- mockito -->	
 	  <dependency>
 		<groupId>org.mockito</groupId>
 		<artifactId>mockito-core</artifactId>
 		<version>${mockito.version}</version>
 		<scope>test</scope>
+	  </dependency>
+	  <dependency>
+		<groupId>org.powermock</groupId>
+		<artifactId>powermock-module-junit4</artifactId>
+		<version>${powermock.version}</version>
+		<scope>test</scope>
+	  </dependency>
+	  <dependency>
+		<groupId>org.powermock</groupId>
+		<artifactId>powermock-api-mockito</artifactId>
+		<version>${powermock.version}</version>
+		<scope>test</scope>
+		<exclusions>
+			<exclusion>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-all</artifactId>
+			</exclusion>
+		</exclusions>
 	  </dependency>
 
 	  <dependency>

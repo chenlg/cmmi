@@ -12,7 +12,6 @@ import com.cmmi.common.service.response.soap.base.WSResult;
  * @author chenlg
  * @version $Id: LogicHandleError.java, v 0.1 2014年3月12日 下午3:15:44 chenlg Exp $
  * @since    JDK 1.7
- * @see
  */
 public class LogicHandleError {
 

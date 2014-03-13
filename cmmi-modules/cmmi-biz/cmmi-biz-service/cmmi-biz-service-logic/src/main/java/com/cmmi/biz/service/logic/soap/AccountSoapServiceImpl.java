@@ -37,7 +37,6 @@ import com.cmmi.core.persistant.po.account.UserPO;
  * @author chenlg
  * @version $Id: AccountSoapServiceImpl.java, v 0.1 2014年2月20日 上午10:10:23 chenlg Exp $
  * @since    JDK 1.7
- * @see
  */
 //serviceName指明WSDL中<wsdl:service>与<wsdl:binding>元素的名称, endpointInterface属性指向Interface类全称.
 @WebService(serviceName = "AccountService", endpointInterface = "com.cmmi.common.service.facade.soap.AccountSoapService", targetNamespace = WsConstants.NS)
