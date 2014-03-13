@@ -76,11 +76,10 @@
 	</beans>
 
 	<!-- functional test环境 -->
-	<beans profile="functional">
+	<beans profile="test">
 		<context:property-placeholder ignore-resource-not-found="true"
 			location="classpath*:/application.properties,
-          			  classpath*:/application.functional.properties,
-          			  classpath*:/application.functional-local.properties" />	
+          			  classpath*:/application.test.properties" />	
 		
 		<!-- Tomcat JDBC连接池 -->
 		<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
@@ -93,7 +92,7 @@
 				
 		<!-- 初始化数据结构 -->
 		<jdbc:initialize-database data-source="dataSource" ignore-failures="ALL">
-			<jdbc:script location="classpath:sql/${db.type}/schema.sql" />
+			<jdbc:script location="classpath:sql/${db.type}/cmmi.sql" />
 		</jdbc:initialize-database>
 	</beans>
 	

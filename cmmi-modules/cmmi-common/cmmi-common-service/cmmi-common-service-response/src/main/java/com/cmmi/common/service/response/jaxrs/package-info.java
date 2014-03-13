@@ -3,7 +3,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 TODO ADD REASON. 
+ * Reason:	  jaxrs 接口返回数据. 
  * 
  */
 package com.cmmi.common.service.response.jaxrs;
