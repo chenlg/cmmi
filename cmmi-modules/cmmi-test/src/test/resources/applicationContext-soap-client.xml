@@ -66,7 +66,7 @@
 
 	<jaxws:client id="accountWebServiceClient"
 		serviceClass="com.cmmi.common.service.facade.soap.AccountSoapService"
-		address="http://localhost:8080/cmmi-server/cxf/soap/accountservice">
+		address="http://localhost:8080/cmmi/cxf/soap/accountservice">
 		<!-- <jaxws:outInterceptors> <ref bean="clientWSS4JOutInterceptor" /> </jaxws:outInterceptors>  -->
 		  <jaxws:inInterceptors>  
             <ref bean="clientWSS4JInInterceptor"/>  

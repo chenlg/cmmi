@@ -37,6 +37,23 @@
 	</dependencies>
 
 	<build>
-		<finalName>cmmi</finalName>
+		<plugins>
+			<!-- war 插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+			</plugin>
+			<!-- tomcat 7 插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<port>8080</port>
+					<path>/cmmi</path>
+					<uriEncoding>UTF-8</uriEncoding>
+					<finalName>cmmi</finalName>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>

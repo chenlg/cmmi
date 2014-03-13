@@ -21,4 +21,37 @@
     <module>cmmi-common</module>
     <module>cmmi-test</module>
   </modules>
+  
+  <build> 
+	<plugins>
+		<!-- cobertura插件, 设置不需要计算覆盖率的类 -->
+		<!-- mvn cobertura:cobertura 则在target/site/cobertura/*--> 
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>cobertura-maven-plugin</artifactId>
+			<version>2.5.2</version>
+			<configuration> 
+				<outputDirectory>target\cobertura</outputDirectory>
+				<check></check>
+				<formats> 
+					<format>html</format> 
+				</formats> 
+				<instrumentation>
+					<!-- includes 不清楚无效。-->
+					<excludes>
+						<exclude>**/*Service*.java</exclude>
+					</excludes>
+				</instrumentation>
+			</configuration>
+			<executions> 
+				<execution>
+					<goals> 
+						<goal>clean</goal> 
+						<goal>check</goal>  
+					</goals> 
+				</execution> 
+			</executions> 
+		</plugin> 		
+	</plugins>
+  </build>	
 </project>

@@ -48,6 +48,31 @@
 			<groupId>com.cmmi</groupId>
 			<artifactId>cmmi-core-persistant-po</artifactId>
 		</dependency>
-
 	</dependencies>
+	
+  <profiles>
+	<!-- 刷新开发环境数据库 -->
+	<profile>
+		<id>refresh-db</id>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<configuration>
+						<target>
+							<property file="../../../../cmmi-server/src/test/resources/application.development.properties" />
+							<sql driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}" onerror="continue" encoding="${project.build.sourceEncoding}">
+								<classpath refid="maven.test.classpath" />
+								<transaction src="../../../../cmmi-server/src/main/resources/sql/mysql/cmmi.sql"/>
+								<transaction src="../../../../cmmi-server/src/test/resources/data/mysql/import-data.sql"/>
+							</sql>
+						</target>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+  </profiles>
+  
 </project>

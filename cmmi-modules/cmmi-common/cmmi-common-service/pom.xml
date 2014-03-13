@@ -19,5 +19,33 @@
     <module>cmmi-common-service-remote</module>
     <module>cmmi-common-service-facade</module>
     <module>cmmi-common-service-response</module>
-  </modules>
+  </modules> 
+	
+		
+  <build>
+	<plugins>
+		<!-- javadoc 生成插件 -->
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-javadoc-plugin</artifactId>
+			<version>2.9.1</version>
+			<!-- 配置导出配置 -->
+			<configuration>
+				<outputDirectory>..\..\..\javadoc</outputDirectory>
+				<reportOutputDirectory>..\..\..\javadoc</reportOutputDirectory>
+				<excludePackageNames>com.cmmi.common.service.remote:</excludePackageNames>
+			</configuration>
+			<executions>
+				<execution>
+					<id>attach-javadocs</id>
+					<phase>site</phase>
+					<goals>
+						<goal>aggregate</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>		
+	</plugins>
+  </build>
+	
 </project>

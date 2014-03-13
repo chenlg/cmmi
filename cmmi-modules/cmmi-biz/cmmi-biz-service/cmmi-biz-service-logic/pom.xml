@@ -18,7 +18,7 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
-		
+
 		<dependency>
 			<groupId>com.cmmi</groupId>
 			<artifactId>cmmi-biz-service-escape</artifactId>
@@ -45,4 +45,22 @@
 		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<configuration>
+					<instrumentation>
+						<excludes>
+							<exclude>**/*Error.class</exclude>
+							<exclude>**/*Exceptions.class</exclude>
+						</excludes>
+					</instrumentation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>

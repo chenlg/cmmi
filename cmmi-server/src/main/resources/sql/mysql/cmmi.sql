@@ -1,4 +1,4 @@
-﻿# Host: localhost  (Version: 5.6.12)
+# Host: localhost  (Version: 5.6.12)
 # Date: 2014-03-12 18:45:15
 # Generator: MySQL-Front 5.3  (Build 4.91)
 
