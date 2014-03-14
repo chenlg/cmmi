@@ -16,9 +16,8 @@ import com.cmmi.test.tools.spring.Profiles;
  * @author chenlg
  */
 public class CmmiServer {
-
     public static final int      PORT          = 8080;
-    public static final String   CONTEXT       = "E://workspace/oneself/cmmi/cmmi";
+    public static final String   CONTEXT       = "c:\\oneself/cmmi/cmmi";
     public static final String[] TLD_JAR_NAMES = new String[] { "sitemesh", "spring-webmvc"};
 
     public static void main(String[] args) throws Exception {

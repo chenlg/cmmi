@@ -23,7 +23,7 @@ import com.google.common.collect.Lists;
  */
 public class JettyFactory {
 
-	private static final String DEFAULT_WEBAPP_PATH = "cmmi-server/src/main/webapp";
+	private static final String DEFAULT_WEBAPP_PATH = "src/main/webapp";
 	private static final String WINDOWS_WEBDEFAULT_PATH = "jetty/webdefault-windows.xml";
 
 	/**
@@ -41,8 +41,9 @@ public class JettyFactory {
 		server.setConnectors(new Connector[] { connector });
 
 		WebAppContext webContext = new WebAppContext(DEFAULT_WEBAPP_PATH, contextPath);
+		webContext.setContextPath("/cmmi");
 		// 修改webdefault.xml，解决Windows下Jetty Lock住静态文件的问题.
-		webContext.setDefaultsDescriptor(WINDOWS_WEBDEFAULT_PATH);
+	//	webContext.setDefaultsDescriptor(WINDOWS_WEBDEFAULT_PATH);
 		server.setHandler(webContext);
 
 		return server;

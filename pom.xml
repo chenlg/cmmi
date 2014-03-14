@@ -33,7 +33,7 @@
 	<selenium.version>2.33.0</selenium.version>
 	<powermock.version>1.5.4</powermock.version>
 	<assertj.version>1.5.0</assertj.version>
-	<jetty.version>7.6.11.v20130520</jetty.version> 
+	<jetty.version>8.1.14.v20131031</jetty.version> 
 		
     <!-- Plugin的属性定义 -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -708,6 +708,13 @@
 				<version>2.0</version>
 			</plugin>
 			
+			<!-- jetty插件, 设定context path与spring profile -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.version}</version> 
+			</plugin>
+			
 			<!-- 增加更多的Source和Test Source目录插件 -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -759,8 +766,9 @@
 			<version>2.15</version>
 			<configuration>
 				<includes>
-					<include>**/*Test.java</include>
+					<include>**/*Test1.java</include>
 				</includes>
+				<skipTests>true</skipTests> 
 			</configuration>
 			<dependencies>
 				<dependency>
@@ -769,7 +777,7 @@
 					<version>2.15</version>
 				</dependency>
 			</dependencies>
-		</plugin>
+		</plugin> 
 			
 		<!-- enforcer插件, 设定环境与依赖的规则 -->
 		<plugin>
@@ -805,27 +813,7 @@
 					</configuration>
 				</execution>
 			</executions>
-		</plugin>
-		
-		<!-- jetty插件, 设定context path与spring profile -->
-		<plugin>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>jetty-maven-plugin</artifactId>
-			<version>${jetty.version}</version>
-			<configuration>
-				<systemProperties>
-					<systemProperty>
-						<name>spring.profiles.active</name>
-						<value>development</value>
-					</systemProperty>
-				</systemProperties>
-				<useTestClasspath>true</useTestClasspath>
-			
-				<webAppConfig>
-					<contextPath>/${project.artifactId}</contextPath>
-				</webAppConfig>
-			</configuration>
-		</plugin>
+		</plugin> 
 
 		<!-- resource插件 -->
 		<plugin>

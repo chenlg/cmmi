@@ -54,6 +54,63 @@
 					<finalName>cmmi</finalName>
 				</configuration>
 			</plugin>
+
+			<!-- jetty插件, 设定context path与spring profile -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<configuration>
+					<systemProperties>
+						<systemProperty>
+							<name>spring.profiles.active</name>
+							<value>development</value>
+						</systemProperty>
+					</systemProperties>
+					<useTestClasspath>true</useTestClasspath>
+					<!-- 额外扫描的class路径 -->
+					<scanTargets>
+						<scanTarget>../cmmi-modules/cmmi-biz/cmmi-biz-process/cmmi-biz-process-daemon/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-biz/cmmi-biz-process/cmmi-biz-process-sercurity/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-biz/cmmi-biz-service/cmmi-biz-service-escape/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-biz/cmmi-biz-service/cmmi-biz-service-logic/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-biz/cmmi-biz-shared/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-common/cmmi-common-service/cmmi-common-service-facade/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-common/cmmi-common-service/cmmi-common-service-remote/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-common/cmmi-common-service/cmmi-common-service-response/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-common/cmmi-common-shared/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-common/cmmi-common-utils/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-core/cmmi-core-domain/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-core/cmmi-core-persistant/cmmi-core-persistant-po/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-core/cmmi-core-persistant/cmmi-core-persistant-repository/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-core/cmmi-core-process/cmmi-core-process-cache/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-core/cmmi-core-process/cmmi-core-process-extension/target/classes</scanTarget>
+						<scanTarget>../cmmi-modules/cmmi-core/cmmi-core-shared/target/classes</scanTarget>
+					</scanTargets>
+
+
+					<webAppConfig>
+						<contextPath>/cmmi</contextPath>
+						<extraClasspath>
+							../cmmi-modules/cmmi-biz/cmmi-biz-process/cmmi-biz-process-daemon/target/classes;
+							../cmmi-modules/cmmi-biz/cmmi-biz-process/cmmi-biz-process-sercurity/target/classes;
+							../cmmi-modules/cmmi-biz/cmmi-biz-service/cmmi-biz-service-escape/target/classes;
+							../cmmi-modules/cmmi-biz/cmmi-biz-service/cmmi-biz-service-logic/target/classes;
+							../cmmi-modules/cmmi-biz/cmmi-biz-shared/target/classes;
+							../cmmi-modules/cmmi-common/cmmi-common-service/cmmi-common-service-facade/target/classes;
+							../cmmi-modules/cmmi-common/cmmi-common-service/cmmi-common-service-remote/target/classes;
+							../cmmi-modules/cmmi-common/cmmi-common-service/cmmi-common-service-response/target/classes;
+							../cmmi-modules/cmmi-common/cmmi-common-shared/target/classes;
+							../cmmi-modules/cmmi-common/cmmi-common-utils/target/classes;
+							../cmmi-modules/cmmi-core/cmmi-core-domain/target/classes;
+							../cmmi-modules/cmmi-core/cmmi-core-persistant/cmmi-core-persistant-po/target/classes;
+							../cmmi-modules/cmmi-core/cmmi-core-persistant/cmmi-core-persistant-repository/target/classes;
+							../cmmi-modules/cmmi-core/cmmi-core-process/cmmi-core-process-cache/target/classes;
+							../cmmi-modules/cmmi-core/cmmi-core-process/cmmi-core-process-extension/target/classes;
+							../cmmi-modules/cmmi-core/cmmi-core-shared/target/classes;
+						</extraClasspath>
+					</webAppConfig>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>

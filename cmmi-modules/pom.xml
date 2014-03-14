@@ -42,6 +42,7 @@
 						<exclude>**/*Service*.java</exclude>
 					</excludes>
 				</instrumentation>
+				<skip>true</skip>
 			</configuration>
 			<executions> 
 				<execution>
