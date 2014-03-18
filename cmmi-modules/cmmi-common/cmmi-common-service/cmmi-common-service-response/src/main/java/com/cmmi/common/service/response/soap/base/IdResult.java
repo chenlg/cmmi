@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2014, lingang.chen@gmail.com  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ */
 package com.cmmi.common.service.response.soap.base;
 
 import javax.xml.bind.annotation.XmlType;
@@ -8,7 +12,7 @@ import com.cmmi.common.service.response.WsConstants;
 /**
  * 创建某个对象返回的 通用IdResult.
  * 
- * @author badqiu
+ * @author chenlg
  */
 @XmlType(name = "IdResult", namespace = WsConstants.NS)
 public class IdResult extends WSResult {

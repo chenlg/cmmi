@@ -22,18 +22,23 @@ import com.cmmi.common.service.response.soap.dto.UserDTO;
  * @author chenlg
  * @version $Id: AccountSoapService.java, v 0.1 2014年2月19日 下午3:37:17 chenlg Exp $
  * @since    JDK 1.7
- * @see
  */
 //name 指明wsdl中<wsdl:portType>元素的名称
 @WebService(name = "AccountService", targetNamespace = WsConstants.NS)
 public interface AccountSoapService {
     /**
      * 获取用户信息.
+     * 
+     * @param id
+     * @return GetUserResult
      */
     GetUserResult getUser(@WebParam(name = "id") Integer id);
 
     /**
      * 新建用户.
+     * 
+     * @param user
+     * @return IdResult
      */
     IdResult createUser(@WebParam(name = "user") UserDTO user);
 }

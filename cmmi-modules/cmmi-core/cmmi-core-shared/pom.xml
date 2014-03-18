@@ -33,6 +33,6 @@
 			<groupId>com.cmmi</groupId>
 			<artifactId>cmmi-common-shared</artifactId>
 		</dependency>
-
 	</dependencies>
+
 </project>

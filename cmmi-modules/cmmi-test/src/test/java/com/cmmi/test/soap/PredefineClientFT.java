@@ -1,8 +1,14 @@
+/*
+ * Copyright (c) 2014, lingang.chen@gmail.com  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ */
 package com.cmmi.test.soap;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -14,20 +20,21 @@ import com.cmmi.common.service.facade.soap.AccountSoapService;
 import com.cmmi.common.service.response.soap.GetUserResult;
 import com.cmmi.common.service.response.soap.base.IdResult;
 import com.cmmi.common.service.response.soap.dto.UserDTO;
+import com.cmmi.test.unit.BaseUnitTestCase;
+import com.cmmi.test.unit.category.Smoke;
 
 /**
- * AccountService Web服务的功能测试 测试主要的接口调用
+ * Reason:	  AccountService Web服务的功能测试, 测试主要的接口调用.
  * 
  * 使用在Spring applicaitonContext.xml中用<jaxws:client/>，根据AccountWebService接口创建的Client.
  * 
  * 集中在User相关接口.
- * 
- * @author chenlg
+ *  @author chenlg
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @TestExecutionListeners({ DependencyInjectionTestExecutionListener.class })
-@ContextConfiguration(locations = { "/applicationContext-soap-client.xml" })
-public class AccountWebServiceClientTest {
+@ContextConfiguration(locations = { "/soap-client.xml" })
+public class PredefineClientFT extends BaseUnitTestCase {
 
     @Autowired
     private AccountSoapService accountWebServiceClient;
@@ -36,6 +43,7 @@ public class AccountWebServiceClientTest {
      * 测试获取用户.
      */
     @Test
+    @Category(Smoke.class)
     public void getUser() {
         GetUserResult response = accountWebServiceClient.getUser(1);
         assertEquals("admin", response.getUser().getUserAccount());
@@ -55,6 +63,6 @@ public class AccountWebServiceClientTest {
         user.setStatus(false);
 
         IdResult response = accountWebServiceClient.createUser(user);
+        Assert.assertNull("Id", response.getId());
     }
-
 }

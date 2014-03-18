@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2014, lingang.chen@gmail.com  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ */
 package com.cmmi.common.service.response.soap.dto;
 
 import javax.xml.bind.annotation.XmlRootElement;
@@ -12,7 +16,9 @@ import com.cmmi.common.service.response.WsConstants;
  * 
  * 只传输外部接口需要的属�?.使用JAXB 2.0的annotation标注JAVA-XML映射,尽量使用默认约定.
  * 
- * @author calvin
+ * @author chenlg
+ * @version $Id: SearchUserResult.java, v 0.1 2014年3月18日 上午11:17:43 chenlg Exp $
+ * @since    JDK 1.7
  */
 @XmlRootElement
 @XmlType(name = "User", namespace = WsConstants.NS)

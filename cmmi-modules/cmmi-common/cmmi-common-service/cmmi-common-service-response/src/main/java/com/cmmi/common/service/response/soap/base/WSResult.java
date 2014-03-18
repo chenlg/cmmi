@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2014, lingang.chen@gmail.com  All Rights Reserved.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ */
 package com.cmmi.common.service.response.soap.base;
 
 import javax.xml.bind.annotation.XmlType;
@@ -8,7 +12,7 @@ import com.cmmi.common.service.response.WsConstants;
 /**
  * WebService返回结果基类,定义所有返回码.
  * 
- * @author calvin
+ * @author chenlg
  */
 @XmlType(name = "WSResult", namespace = WsConstants.NS)
 public class WSResult {

@@ -21,31 +21,34 @@
     <module>cmmi-common-service-response</module>
   </modules> 
 	
-		
   <build>
 	<plugins>
-		<!-- javadoc 生成插件 -->
+	    <!-- javadoc 生成插件 -->
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-javadoc-plugin</artifactId>
-			<version>2.9.1</version>
+			<artifactId>maven-javadoc-plugin</artifactId> 
 			<!-- 配置导出配置 -->
 			<configuration>
-				<outputDirectory>..\..\..\javadoc</outputDirectory>
-				<reportOutputDirectory>..\..\..\javadoc</reportOutputDirectory>
+				<destDir>apidocs</destDir>
+				<outputDirectory>..\..\..\target</outputDirectory>
+				<reportOutputDirectory>..\..\..\target</reportOutputDirectory>
 				<excludePackageNames>com.cmmi.common.service.remote:</excludePackageNames>
 			</configuration>
-			<executions>
-				<execution>
-					<id>attach-javadocs</id>
-					<phase>site</phase>
-					<goals>
-						<goal>aggregate</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>		
+		</plugin>
+		<!-- 项目源码 plugin -->  
+		<plugin>  
+			<groupId>org.apache.maven.plugins</groupId>  
+			<artifactId>maven-jxr-plugin</artifactId>
+			<configuration>
+				<!--插件一个bug outputDirectory 无效。设置只能在destDir 下。可以修改源码-->
+				<destDir>..\..\..\target/apixref</destDir> 
+				<javadocDir>..\..\..\target\apidocs</javadocDir>
+				<excludes>
+					<exclude>com/cmmi/common/service/remote/**/*.java</exclude>
+				</excludes>
+			</configuration> 
+		</plugin> 
 	</plugins>
-  </build>
+  </build> 
 	
 </project>

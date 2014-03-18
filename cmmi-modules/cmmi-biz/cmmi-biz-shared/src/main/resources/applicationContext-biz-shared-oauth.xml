@@ -12,7 +12,6 @@
 	default-lazy-init="true">
 	
 	<description>soap接口安全认证机制配置</description>
-		
 	<!-- 方法1: IP地址输入拦截器  
 	<bean id="ipAddressInInterceptor" class="com.cmmi.biz.shared.oauth.OauthIpAddressInInterceptor" />
 	全局Bus(输入拦截器)
@@ -53,7 +52,7 @@
     </cxf:bus>  
     -->
     
-    <!--  方法1:证书认证-->
+    <!--  方法:证书认证-->
     <cxf:bus> 
      	<cxf:inInterceptors>  
             <ref bean="serverWSS4JInInterceptor" />  
@@ -85,10 +84,9 @@
         <property name="properties">  
             <map>  
 		       <!-- 此处配置需注意，当指定Signature时就必须像UsernameToken那样指定user和passwordCallbackRef。  
-		                    因为假如我们没指定signatureUser或者encryptionUser，CXF将会使用user来替代之，而signatureUser的  
-		                    密码必须通过passwordCallbackRef赋值。所以哪怕定义了signatureUser也必须同时定义user，  
-		                    且不能为空。  
-		                    公钥不需要密码。   -->
+				                    因为假如我们没指定signatureUser或者encryptionUser，CXF将会使用user来替代之，而signatureUser的  
+				                    密码必须通过passwordCallbackRef赋值。所以哪怕定义了signatureUser也必须同时定义user，  
+				                    且不能为空。  公钥不需要密码。   -->
                 <entry key="action" value="Timestamp Encrypt Signature" />  
                  <!--  MD5加密明文密码   -->
                 <entry key="passwordType" value="PasswordDigest" />  

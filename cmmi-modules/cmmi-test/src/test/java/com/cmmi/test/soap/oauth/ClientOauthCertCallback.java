@@ -18,14 +18,12 @@ import org.apache.ws.security.WSPasswordCallback;
  * Reason:	 soap 证书认证
  * 
  * @author chenlg
- * @version $Id: ClientOauthCertCallback.java, v 0.1 2014年2月28日 上午11:51:21 chenlg Exp $
- * @since    JDK 1.7
- * @see
  */
 public class ClientOauthCertCallback implements CallbackHandler {
 
     Map<String, String> user = new HashMap<String, String>();
-    {
+    
+    public ClientOauthCertCallback()   {
         // 用户名和密码  
          user.put("admin", "123"); 
         // 证书的密码  
@@ -52,5 +50,10 @@ public class ClientOauthCertCallback implements CallbackHandler {
         // 如果包含用户名,就设置该用户名正确密码,由CXF验证密码  
         wpc.setPassword(user.get(wpc.getIdentifier()));
     }
-
+    /**
+     * Add an alias/password pair to the callback mechanism.
+     */
+    public void setAliasPassword(String alias, String password) {
+        user.put(alias, password);
+    }
 }

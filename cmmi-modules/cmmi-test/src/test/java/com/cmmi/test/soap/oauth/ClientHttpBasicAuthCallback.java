@@ -14,9 +14,6 @@ import org.apache.ws.security.WSPasswordCallback;
  * Reason:	 soap http 认证测试. 
  * 
  * @author chenlg
- * @version $Id: ClientHttpBasicAuthCallback.java, v 0.1 2014年2月28日 上午10:42:03 chenlg Exp $
- * @since    JDK 1.7
- * @see
  */
 public class ClientHttpBasicAuthCallback implements CallbackHandler {  
   

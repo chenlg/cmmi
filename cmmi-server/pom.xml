@@ -54,12 +54,15 @@
 					<finalName>cmmi</finalName>
 				</configuration>
 			</plugin>
-
+			
 			<!-- jetty插件, 设定context path与spring profile -->
 			<plugin>
 				<groupId>org.mortbay.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+					<stopKey>foo</stopKey>
+					<stopPort>9999</stopPort>
 					<systemProperties>
 						<systemProperty>
 							<name>spring.profiles.active</name>
@@ -67,6 +70,8 @@
 						</systemProperty>
 					</systemProperties>
 					<useTestClasspath>true</useTestClasspath>
+					<webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
+					<classesDirectory>target/classes</classesDirectory>
 					<!-- 额外扫描的class路径 -->
 					<scanTargets>
 						<scanTarget>../cmmi-modules/cmmi-biz/cmmi-biz-process/cmmi-biz-process-daemon/target/classes</scanTarget>
@@ -111,6 +116,7 @@
 					</webAppConfig>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
-</project>
+</project> 

@@ -10,7 +10,6 @@ package com.cmmi.common.service.response;
  * @author chenlg
  * @version $Id: WsConstants.java, v 0.1 2014年3月12日 下午3:22:29 chenlg Exp $
  * @since    JDK 1.7
- * @see
  */
 public class WsConstants {
 

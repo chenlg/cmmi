@@ -1,14 +1,13 @@
-/*******************************************************************************
- * Copyright (c) 2005, 2014 springside.github.io
- *
+/*
+ * Copyright (c) 2014, lingang.chen@gmail.com  All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
- *******************************************************************************/
-package com.cmmi.test.tools;
+ */
+package com.cmmi.test.unit;
 
 import org.eclipse.jetty.server.Server;
 
-import com.cmmi.test.tools.jetty.JettyFactory;
-import com.cmmi.test.tools.spring.Profiles;
+import com.cmmi.test.unit.context.Profiles;
+import com.cmmi.test.unit.jetty.JettyFactory;
 
 /**
  * 使用Jetty运行调试Web应用, 在Console快速重载应用.
@@ -16,20 +15,22 @@ import com.cmmi.test.tools.spring.Profiles;
  * @author chenlg
  */
 public class CmmiServer {
-    public static final int      PORT          = 8080;
-    public static final String   CONTEXT       = "c:\\oneself/cmmi/cmmi";
-    public static final String[] TLD_JAR_NAMES = new String[] { "sitemesh", "spring-webmvc"};
-
+    
+    public static final int    PORT    = 8080;
+    
+    public static final String CONTEXT = "/cmmi";
+    
     public static void main(String[] args) throws Exception {
+        
         // 设定Spring的profile
-        Profiles.setProfileAsSystemProperty(Profiles.DEVELOPMENT);
+        Profiles.setProfileAsSystemProperty(Profiles.UNIT_TEST);
 
         // 启动Jetty
-        Server server = JettyFactory.createServerInSource(PORT, CONTEXT);
-        JettyFactory.setTldJarNames(server, TLD_JAR_NAMES);
+        Server server = JettyFactory.createServerInSource(PORT);
 
         try {
-            System.out.println("[HINT] Don't forget to set -XX:MaxPermSize=128m");
+            //
+            System.out.println("[HINT]  -XX:MaxPermSize=128m");
 
             server.start();
             System.out.println("Server running at http://localhost:" + PORT + CONTEXT);

@@ -15,13 +15,13 @@ import com.cmmi.common.shared.annotation.Description;
  * @author chenlg
  * @version $Id: AccountJaxRsService.java, v 0.1 2014年2月25日 下午2:58:26 chenlg Exp $
  * @since    JDK 1.7
- * @see
  */
 @Description
 public interface AccountJaxRsService {
     
     /**
-     * http://localhost:8080/cmmi-server/cxf/jaxrs/user/1.xml
+     *  访问实例: 
+     *  <code>http://localhost:8080/cmmi-server/cxf/jaxrs/user/1.xml</code>
      * 
      * @param id
      * @return
@@ -29,7 +29,8 @@ public interface AccountJaxRsService {
     public UserDTO getAsXml(@PathParam("id") Integer id);
 
     /**
-     * http://localhost:8080/cmmi-server/cxf/jaxrs/user/1.json
+     * 访问实例: 
+     * <code> http://localhost:8080/cmmi-server/cxf/jaxrs/user/1.json</code>
      * 
      * @param id
      * @return

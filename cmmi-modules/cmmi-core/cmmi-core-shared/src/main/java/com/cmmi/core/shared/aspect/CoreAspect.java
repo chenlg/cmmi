@@ -112,7 +112,11 @@ public class CoreAspect {
         StringBuilder aspectMessage = new StringBuilder();
 
         aspectMessage.append("[日志]:业务(").append(desc).append("),方法(").append(targetClassName)
-            .append(".").append(targetMethodName).append("),时间(").append((l2 - l1)).append("ms)")
+            .append(".")
+            .append(targetMethodName)
+            .append("),时间(")
+            .append(l2 - l1)
+            .append("ms)")
             .append(",状态(正常)");
 
         /*
