@@ -46,21 +46,21 @@ public class DeployClientTest {
         assertEquals("admin", response.getUser().getUserAccount());
     }
 
-    /**
-     * 测试创建用户.
-     */
-    @Test
-    public void createUser() {
-        UserDTO user = new UserDTO();
-        user.setUserName(UnitRandom.randomName("admin"));
-        user.setUserPwd("123456");
-        user.setUserEmail("lingang.chen@gmail.com");
-        user.setUserAccount("admin");
-        user.setSalt("avcdegsgs");
-        user.setStatus(false);
-
-        IdResult response = accountWebServiceClient.createUser(user);
-        Assert.assertNull("Id", response.getId());
-    }
+//    /**
+//     * 测试创建用户.
+//     */
+//    @Test
+//    public void createUser() {
+//        UserDTO user = new UserDTO();
+//        user.setUserName(UnitRandom.randomName("admin"));
+//        user.setUserPwd("123456");
+//        user.setUserEmail("lingang.chen@gmail.com");
+//        user.setUserAccount("admin");
+//        user.setSalt("avcdegsgs");
+//        user.setStatus(false);
+//
+//        IdResult response = accountWebServiceClient.createUser(user);
+//        Assert.assertNull("Id", response.getId());
+//    }
 
 }
