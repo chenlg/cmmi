@@ -16,6 +16,7 @@
 
 	<name>cmmi-core-domain</name>
 	<url>http://maven.apache.org</url>
+	<description>CMMI Modules Core Domain Area</description>
 
 	<dependencies>
 

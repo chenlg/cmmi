@@ -14,6 +14,7 @@
   
   <name>cmmi-biz-service</name>
   <url>http://maven.apache.org</url>
+  <description>CMMI Modules Biz Service Area</description>
   
   <modules>
     <module>cmmi-biz-service-escape</module>

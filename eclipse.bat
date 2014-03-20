@@ -1,1 +1,0 @@
-cmd /k mvn clean eclipse:clean eclipse:eclipse -DdownloadSources=true -DdownloadJavadocs=true

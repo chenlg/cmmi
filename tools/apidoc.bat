@@ -6,12 +6,10 @@ set MVN=mvn
 set MAVEN_OPTS=%MAVEN_OPTS% -XX:MaxPermSize=128m
 
 echo [Step 1]  Into Facade stage path.
-cd .. 
+cd ..
+cd cmmi-modules\cmmi-common\cmmi-common-service
 
-call %MVN% clean javadoc:aggregate -Prefresh-javadoc
-
-call %MVN% jxr:jxr -Prefresh-javadoc
-
+call %MVN% clean site:site -Prefresh-synopsis  
 
 goto end 
 

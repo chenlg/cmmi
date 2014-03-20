@@ -14,6 +14,7 @@
   
   <name>cmmi-common</name>
   <url>http://maven.apache.org</url>
+  <description>CMMI Modules Common Area</description>
   
   <modules>
     <module>cmmi-common-shared</module>

@@ -15,6 +15,7 @@
 
 	<name>cmmi-core-persistant-repository</name>
 	<url>http://maven.apache.org</url>
+	<description>CMMI Modules Core Persistant Repository Area</description>
 
 	<dependencies>
 		<!-- mysql -->

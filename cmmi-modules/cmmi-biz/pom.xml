@@ -14,6 +14,7 @@
   
   <name>cmmi-biz</name>
   <url>http://maven.apache.org</url>
+  <description>CMMI Modules Biz Area</description>
   
   <modules>
     <module>cmmi-biz-shared</module>

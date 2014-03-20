@@ -14,6 +14,7 @@
   
   <name>cmmi-core-persistant</name>
   <url>http://maven.apache.org</url>
+  <description>CMMI Modules Core Persistant Area</description>
   
   <modules>
     <module>cmmi-core-persistant-po</module>

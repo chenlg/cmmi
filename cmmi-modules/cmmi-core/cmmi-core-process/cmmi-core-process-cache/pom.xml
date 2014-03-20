@@ -15,5 +15,6 @@
 
 	<name>cmmi-core-process-cache</name>
 	<url>http://maven.apache.org</url>
+	<description>CMMI Modules Core Process Cache Area</description>
 
 </project>

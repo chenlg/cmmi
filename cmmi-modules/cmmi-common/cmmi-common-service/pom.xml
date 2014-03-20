@@ -1,62 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.cmmi</groupId>
-    <artifactId>cmmi-common</artifactId>
-    <version>1.0.0</version>
-  </parent>
-  
-  <groupId>com.cmmi</groupId>
-  <artifactId>cmmi-common-service</artifactId>
-  <version>1.0.0</version>
-  <packaging>pom</packaging>
-  
-  <name>cmmi-common-service</name>
-  <url>http://maven.apache.org</url>
-  
-  <modules>
-    <module>cmmi-common-service-remote</module>
-    <module>cmmi-common-service-facade</module>
-    <module>cmmi-common-service-response</module>
-  </modules> 
-	
-  <build>
-	<plugins>
-	    <!-- javadoc 生成插件 -->
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-javadoc-plugin</artifactId> 
-			<!-- 配置导出配置 -->
-			<configuration>
-				<destDir>apidocs</destDir>
-				<outputDirectory>..\..\..\target</outputDirectory>
-				<reportOutputDirectory>..\..\..\target</reportOutputDirectory>
-				<excludePackageNames>com.cmmi.common.service.remote:</excludePackageNames>
-				<!-- 配置导出配置 -->
-				<configuration>
-					<aggregate>true</aggregate>
-					<failOnError>false</failOnError>
-				</configuration>
-			</configuration>
-		</plugin>
-		<!-- 项目源码 plugin -->  
-		<plugin>  
-			<groupId>org.apache.maven.plugins</groupId>  
-			<artifactId>maven-jxr-plugin</artifactId>
-			<configuration>
-				<!--插件一个bug outputDirectory 无效。设置只能在destDir 下。可以修改源码-->
-				<destDir>..\..\..\target/apixref</destDir> 
-				<javadocDir>..\..\..\target\apidocs</javadocDir>
-				<aggregate>true</aggregate>
-				<linkJavadoc>true</linkJavadoc>
-				<javadocDir>target/report/javadocs</javadocDir>
-				<excludes>
-					<exclude>com/cmmi/common/service/remote/**/*.java</exclude>
-				</excludes>
-			</configuration> 
-		</plugin> 
-	</plugins>
-  </build> 
-	
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.cmmi</groupId>
+		<artifactId>cmmi-common</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<groupId>com.cmmi</groupId>
+	<artifactId>cmmi-common-service</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<name>cmmi-common-service</name>
+	<url>http://maven.apache.org</url>
+	<description>CMMI Modules Common Service Area</description>
+
+	<modules>
+		<module>cmmi-common-service-remote</module>
+		<module>cmmi-common-service-facade</module>
+		<module>cmmi-common-service-response</module>
+	</modules>
+
+	<profiles>
+		<profile>
+			<id>refresh-synopsis</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-site-plugin</artifactId>
+						<configuration>
+							<locales>zh_CN</locales>
+							<destDir>report</destDir>
+							<aggregate>true</aggregate>
+							<attach>true</attach>
+							<outputDirectory>..\..\..\target</outputDirectory>
+							<reportOutputDirectory>..\..\..\target</reportOutputDirectory>
+							<reportPlugins>
+								<plugin>
+									<groupId>org.apache.maven.plugins</groupId>
+									<artifactId>maven-project-info-reports-plugin</artifactId>
+									<configuration>
+										<dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+										<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+									</configuration>
+									<reportSets>
+										<reportSet>
+											<reports>
+												<report>index</report>
+												<report>dependencies</report>
+												<report>project-team</report>
+												<report>license</report>
+											</reports>
+										</reportSet>
+									</reportSets>
+								</plugin>
+								
+								<plugin>
+									<groupId>org.apache.maven.plugins</groupId>
+									<artifactId>maven-javadoc-plugin</artifactId>
+									<configuration>
+										<excludePackageNames>com.cmmi.common.service.remote:</excludePackageNames>
+										<aggregate>true</aggregate>
+										<failOnError>false</failOnError>
+									</configuration>
+								</plugin>
+								
+								<plugin>
+									<groupId>org.apache.maven.plugins</groupId>
+									<artifactId>maven-jxr-plugin</artifactId>
+									<configuration>
+										<javadocDir>..\..\..\target\apidocs</javadocDir>
+										<aggregate>true</aggregate>
+										<linkJavadoc>true</linkJavadoc>
+									</configuration>
+								</plugin>
+							</reportPlugins>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 </project>

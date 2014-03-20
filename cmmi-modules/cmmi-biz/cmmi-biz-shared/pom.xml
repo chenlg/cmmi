@@ -16,6 +16,7 @@
 
 	<name>cmmi-biz-shared</name>
 	<url>http://maven.apache.org</url>
+	<description>CMMI Modules Biz Shared Area</description>
 
 	<dependencies>
 		<!-- AOP begin -->
