@@ -14,7 +14,7 @@ import com.cmmi.test.unit.jetty.JettyFactory;
  * 
  * @author chenlg
  */
-public class CmmiServer {
+public class TestServer {
     
     public static final int    PORT    = 8080;
     

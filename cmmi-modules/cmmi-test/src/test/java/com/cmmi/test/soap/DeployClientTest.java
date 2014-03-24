@@ -15,7 +15,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import com.cmmi.common.service.facade.soap.AccountSoapService;
 import com.cmmi.common.service.response.soap.GetUserResult;
 import com.cmmi.common.service.response.soap.base.IdResult;
-import com.cmmi.common.service.response.soap.dto.UserDTO;
+import com.cmmi.common.service.response.soap.dto.UserSoapDTO;
 import com.cmmi.test.unit.category.Smoke;
 import com.cmmi.test.unit.data.UnitRandom;
 

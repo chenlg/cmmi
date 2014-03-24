@@ -3,8 +3,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
 /**
- * Reason:	 项目业务守护区.
- *      <p>功能描述:</p>
+ * Reason:   项目业务守护区.
  *      <ul>
  *          <li>1.定是任务</li>
  *          <li>2.消息监听</li>

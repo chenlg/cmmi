@@ -8,8 +8,29 @@
 	default-lazy-init="true">
 	<description>Apache CXF Web Service Client端配置</description>
 
+
+	<!-- Http Basic Auth 测试 -->
+	<bean id="clientOutPasswordCallback" class="com.cmmi.test.soap.oauth.ClientHttpBasicAuthCallback"></bean>
+
+	<bean id="clientWSS4JOutInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+		<constructor-arg>
+			<map>
+				<entry key="action" value="UsernameToken Timestamp" />
+				<!--MD5加密明文密码 -->
+				<entry key="passwordType" value="PasswordDigest" />
+				<entry key="user" value="admin" />
+				<entry key="passwordCallbackRef">
+					<ref bean="clientOutPasswordCallback" />
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
 	<jaxws:client id="accountWebServiceClient"
 		serviceClass="com.cmmi.common.service.facade.soap.AccountSoapService"
-		address="http://localhost:8080/cmmi/cxf/soap/accountservice">
+		address="http://localhost:8080/${projectId}/cxf/soap/accountservice">
+		<jaxws:outInterceptors>
+			<ref bean="clientWSS4JOutInterceptor" />
+		</jaxws:outInterceptors>
 	</jaxws:client>
 </beans>

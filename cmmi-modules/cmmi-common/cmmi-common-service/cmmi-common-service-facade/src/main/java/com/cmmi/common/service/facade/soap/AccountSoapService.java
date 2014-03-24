@@ -10,7 +10,7 @@ import javax.jws.WebService;
 import com.cmmi.common.service.response.WsConstants;
 import com.cmmi.common.service.response.soap.GetUserResult;
 import com.cmmi.common.service.response.soap.base.IdResult;
-import com.cmmi.common.service.response.soap.dto.UserDTO;
+import com.cmmi.common.service.response.soap.dto.UserSoapDTO;
 
 /**
  * Reason:	  * JAX-WS2.0的WebService接口定义类.
@@ -40,5 +40,5 @@ public interface AccountSoapService {
      * @param user
      * @return IdResult
      */
-    IdResult createUser(@WebParam(name = "user") UserDTO user);
+    IdResult createUser(@WebParam(name = "user") UserSoapDTO user);
 }

@@ -2,13 +2,14 @@
  * Copyright (c) 2014, lingang.chen@gmail.com  All Rights Reserved.
  * Licensed under the Apache License, Version 2.0 (the "License");
  */
+package com.cmmi.common.shared.annotation;
+
 /**
- * Reason:	 公共注解描述.
- * 
- *  <p>整体产品可以单独封装注解式描述,暂时放入common下属shared 层</p> 
- *  
- *  <span>注解功能描述:</span>
- *  
+ * Reason:  公共注解描述..
+ *     <p>层次描述类无效.</p>
+ *     
+ *     <p>整体产品可以单独封装注解式描述,暂时放入common下属shared 层</p> 
+ *     
  * // 说明该注解将被包含在javadoc中  
  * @Documented  
  * // 这个注解可以是类注解，也可以是方法的注解  
@@ -21,5 +22,15 @@
  *   // 为注解定义一个方法即为注解定义了一个元素，返回的默认值为hell world  
  *  public String name() default "hello world";  
  * }  
+ *   
+ * @author chenlg
  */
-package com.cmmi.common.shared.annotation;
+public class CommonSharedAnnotationDescription {
+
+    /**
+     *  描述:
+     *  <p>自定义注解</p>
+     */
+    public final static String COMMON_SHARED_ANNOTATION_DESCRIPTION = "CommonSharedAnnotationDescription";
+
+}

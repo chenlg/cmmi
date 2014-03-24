@@ -6,7 +6,7 @@ package com.cmmi.common.service.facade.jaxrs;
 
 import javax.ws.rs.PathParam;
 
-import com.cmmi.common.service.response.jaxrs.dto.UserDTO;
+import com.cmmi.common.service.response.jaxrs.dto.UserJaxrsDTO;
 import com.cmmi.common.shared.annotation.Description;
 
 /**
@@ -21,19 +21,19 @@ public interface AccountJaxRsService {
     
     /**
      *  访问实例: 
-     *  <code>http://localhost:8080/cmmi-server/cxf/jaxrs/user/1.xml</code>
+     *  <code>http://localhost:8080/cmmi/cxf/jaxrs/user/1.xml</code>
      * 
      * @param id
      * @return
      */
-    public UserDTO getAsXml(@PathParam("id") Integer id);
+    public UserJaxrsDTO getAsXml(@PathParam("id") Integer id);
 
     /**
      * 访问实例: 
-     * <code> http://localhost:8080/cmmi-server/cxf/jaxrs/user/1.json</code>
+     * <code> http://localhost:8080/cmmi/cxf/jaxrs/user/1.json</code>
      * 
      * @param id
      * @return
      */
-    public UserDTO getAsJson(@PathParam("id") Integer id) ;
+    public UserJaxrsDTO getAsJson(@PathParam("id") Integer id) ;
 }

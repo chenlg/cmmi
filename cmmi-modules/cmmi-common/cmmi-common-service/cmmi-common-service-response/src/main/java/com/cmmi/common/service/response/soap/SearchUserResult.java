@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 
 import com.cmmi.common.service.response.WsConstants;
 import com.cmmi.common.service.response.soap.base.WSResult;
-import com.cmmi.common.service.response.soap.dto.UserDTO;
+import com.cmmi.common.service.response.soap.dto.UserSoapDTO;
 
 /**
  * Reason:	 多用户收索返回类. 
@@ -24,22 +24,22 @@ import com.cmmi.common.service.response.soap.dto.UserDTO;
 @XmlType(name = "SearchUserResult", namespace = WsConstants.NS)
 public class SearchUserResult extends WSResult {
 
-    private List<UserDTO> userList;
+    private List<UserSoapDTO> userList;
 
     public SearchUserResult() {
     }
 
-    public SearchUserResult(List<UserDTO> userList) {
+    public SearchUserResult(List<UserSoapDTO> userList) {
         this.userList = userList;
     }
 
     @XmlElementWrapper(name = "userList")
     @XmlElement(name = "user")
-    public List<UserDTO> getUserList() {
+    public List<UserSoapDTO> getUserList() {
         return userList;
     }
 
-    public void setUserList(List<UserDTO> userList) {
+    public void setUserList(List<UserSoapDTO> userList) {
         this.userList = userList;
     }
 }

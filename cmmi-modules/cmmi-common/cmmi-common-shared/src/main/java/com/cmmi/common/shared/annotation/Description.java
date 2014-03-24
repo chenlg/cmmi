@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 //说明该注解将被包含在javadoc中  
 @Documented
 //编译时存在运行时不加载
-@Retention(RetentionPolicy.CLASS)  
+@Retention(RetentionPolicy.SOURCE)  
 //这个注解可以是类注解，包注解，也可以是方法的注解  
 @Target({ ElementType.TYPE, ElementType.PACKAGE,ElementType.METHOD }) 
 public @interface Description {

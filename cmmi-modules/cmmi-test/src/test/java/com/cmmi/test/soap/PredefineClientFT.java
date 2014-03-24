@@ -19,7 +19,7 @@ import org.springframework.test.context.support.DependencyInjectionTestExecution
 import com.cmmi.common.service.facade.soap.AccountSoapService;
 import com.cmmi.common.service.response.soap.GetUserResult;
 import com.cmmi.common.service.response.soap.base.IdResult;
-import com.cmmi.common.service.response.soap.dto.UserDTO;
+import com.cmmi.common.service.response.soap.dto.UserSoapDTO;
 import com.cmmi.test.unit.BaseUnitTestCase;
 import com.cmmi.test.unit.category.Smoke;
 
@@ -54,7 +54,7 @@ public class PredefineClientFT extends BaseUnitTestCase {
      */
     @Test
     public void createUser() {
-        UserDTO user = new UserDTO();
+        UserSoapDTO user = new UserSoapDTO();
         user.setUserName("admin");
         user.setUserPwd("123456");
         user.setUserEmail("lingang.chen@gmail.com");

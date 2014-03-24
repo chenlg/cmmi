@@ -23,7 +23,7 @@ import com.cmmi.common.service.facade.soap.AccountSoapService;
 import com.cmmi.common.service.response.WsConstants;
 import com.cmmi.common.service.response.soap.GetUserResult;
 import com.cmmi.common.service.response.soap.base.IdResult;
-import com.cmmi.common.service.response.soap.dto.UserDTO;
+import com.cmmi.common.service.response.soap.dto.UserSoapDTO;
 import com.cmmi.common.shared.annotation.AspectLogger;
 import com.cmmi.common.utils.beanvalidator.BeanValidators;
 import com.cmmi.core.domain.account.AccountDomain;
@@ -66,7 +66,7 @@ public class AccountSoapServiceImpl extends LogicHandleError implements AccountS
             UserPO userPo = accountDomain.getUser(id);
 
             Validate.notNull(userPo, "用户不存在(id:" + id + ")");
-            UserDTO userDto = new UserDTO();
+            UserSoapDTO userDto = new UserSoapDTO();
 
             BeanUtils.copyProperties(userPo, userDto);
 
@@ -86,7 +86,7 @@ public class AccountSoapServiceImpl extends LogicHandleError implements AccountS
     }
 
     @Override
-    public IdResult createUser(UserDTO userDto) {
+    public IdResult createUser(UserSoapDTO userDto) {
         if (logger.isInfoEnabled())
             logger.info("测试创建用户!");
         IdResult result = new IdResult();

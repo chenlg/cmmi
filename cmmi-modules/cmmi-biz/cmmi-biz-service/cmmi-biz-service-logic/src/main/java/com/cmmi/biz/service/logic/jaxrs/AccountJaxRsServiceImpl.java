@@ -20,7 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 import com.cmmi.common.service.facade.jaxrs.AccountJaxRsService;
-import com.cmmi.common.service.response.jaxrs.dto.UserDTO;
+import com.cmmi.common.service.response.jaxrs.dto.UserJaxrsDTO;
 import com.cmmi.core.domain.account.AccountDomain;
 import com.cmmi.core.persistant.po.account.UserPO;
 
@@ -44,7 +44,7 @@ public class AccountJaxRsServiceImpl implements AccountJaxRsService {
     @GET
     @Path("/{id}.xml")
     @Produces(MediaType.APPLICATION_XML)
-    public UserDTO getAsXml(@PathParam("id") Integer id) {
+    public UserJaxrsDTO getAsXml(@PathParam("id") Integer id) {
         UserPO userPo = accountDomain.getUser(id);
         if (userPo == null) {
             String message = "用户不存在(id:" + id + ")";
@@ -59,7 +59,7 @@ public class AccountJaxRsServiceImpl implements AccountJaxRsService {
     @GET
     @Path("/{id}.json")
     @Produces(MediaType.APPLICATION_JSON)
-    public UserDTO getAsJson(@PathParam("id") Integer id) {
+    public UserJaxrsDTO getAsJson(@PathParam("id") Integer id) {
         UserPO userPo = accountDomain.getUser(id);
         if (userPo == null) {
             String message = "用户不存在(id:" + id + ")";
@@ -71,8 +71,8 @@ public class AccountJaxRsServiceImpl implements AccountJaxRsService {
         return bindDTO(userPo);
     }
 
-    private UserDTO bindDTO(UserPO user) {
-        UserDTO userDto = new UserDTO();
+    private UserJaxrsDTO bindDTO(UserPO user) {
+        UserJaxrsDTO userDto = new UserJaxrsDTO();
 
         BeanUtils.copyProperties(user, userDto);
         return userDto;

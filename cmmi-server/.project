@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>cmmi-server</name>
+	<comment>Java 服务工程模型. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+	<projects>
+		<project>cmmi-biz-service-logic</project>
+		<project>cmmi-biz-service-escape</project>
+		<project>cmmi-core-domain</project>
+		<project>cmmi-core-persistant-repository</project>
+		<project>cmmi-core-persistant-po</project>
+		<project>cmmi-biz-shared</project>
+		<project>cmmi-common-shared</project>
+		<project>cmmi-common-service-facade</project>
+		<project>cmmi-common-service-response</project>
+		<project>cmmi-common-utils</project>
+		<project>cmmi-biz-process-daemon</project>
+		<project>cmmi-biz-process-sercurity</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>
